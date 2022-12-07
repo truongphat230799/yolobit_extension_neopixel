@@ -2,9 +2,6 @@ import math, random, neopixel,time
 import machine, _thread
 from machine import Pin, ADC, DAC
 
-NUM_PIXELS = 30
-Pin_NP = 22
-
 class Led_Strip:
     def __init__(self,Pin_NP,NUM_PIXELS):
         self.Pin_NP = Pin_NP

@@ -212,7 +212,7 @@ Blockly.Python['yolobit_neopixel_setup'] = function(block) {
 Blockly.Python['yolobit_neopixel_color'] = function(block) {
   var value_color = Blockly.Python.valueToCode(block, 'COLOR', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = "strips.set_hex_color(" + value_color + ")\n";
+  var code = "strips.show_index_led(0, " + value_color + ")\n";
   return code;
 };
 

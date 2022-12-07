@@ -36,6 +36,29 @@ class Led_Strip:
             self.np.write()
             time.sleep_ms(100)
 
+    def show_index_led(self, index, color, delay=None):
+        if index == 0:
+            for i in range(self.NUM_PIXELS):
+                self.np[i] = self.hex_to_rgb(color)
+
+            self.np.write()
+
+        elif (index > 0) and (index <= self.NUM_PIXELS) :
+            self.np[index - 1] = self.hex_to_rgb(color)
+            self.np.write()
+
+        if delay != None:
+            time.sleep(delay)
+            if index == 0:
+                for i in range(self.NUM_PIXELS):
+                    self.np[i] = (0, 0, 0)
+
+                self.np.write()
+
+            elif (index > 0) and (index <= self.NUM_PIXELS) :
+                self.np[index - 1] = (0, 0, 0)
+                self.np.write()
+    
     def dim_effect(self):
         RED = 0
         GREEN = 0

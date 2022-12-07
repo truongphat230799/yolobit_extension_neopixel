@@ -205,7 +205,7 @@ Blockly.Python['yolobit_neopixel_setup'] = function(block) {
   var dropdown_pin = block.getFieldValue('pin');
   var number_neo = Blockly.Python.valueToCode(block, 'neo', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + "," + number_neo + ")";
+  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + ".pin," + number_neo + ")";
   return code;
 };
 

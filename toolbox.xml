@@ -1,0 +1,20 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category id="neopixel" name="NEOPIXEL" colour="#F826FF" icon="spinner">
+    <block type="yolobit_neopixel_setup">
+      <value name="neo">
+        <shadow type="math_number">
+          <field name="NUM">30</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yolobit_neopixel_color">
+      <value name="COLOR">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#ff0000</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="yolobit_neopixel_effect"></block> 
+    <block type="yolobit_neopixel_clear"></block>
+  </category>
+</xml>

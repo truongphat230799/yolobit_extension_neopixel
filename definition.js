@@ -182,7 +182,7 @@ Blockly.Blocks['neopixel_show_index_rgb_led'] = {
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": ColorBlock,
+        "colour": "#bf42bf",
         "tooltip": "",
         "helpUrl": ""
       }

@@ -3,7 +3,7 @@ Blockly.Blocks['yolobit_neopixel_setup'] = {
     this.jsonInit(
       {
         "type": "yolobit_neopixel_setup",
-        "message0": "tạo led dây chân  %1 với số led là %3 %2",
+        "message0": "khởi tạo dây led Neopixel chân  %1 số led là %2 %3",
         "args0": [
           {
             "type": "field_dropdown",
@@ -101,7 +101,7 @@ Blockly.Blocks['yolobit_neopixel_color'] = {
   init: function() {
     this.jsonInit({      
       "type": "yolobit_neopixel_color",
-      "message0": "dây led hiện màu %1 %2",
+      "message0": "đổi màu dây led Neopixel %1 %2",
       "args0": [
         { "type": "input_value", "name": "COLOR" },
         { "type": "input_dummy" }
@@ -163,19 +163,34 @@ Blockly.Blocks["yolobit_neopixel_effect"] = {
   },
 };
 
-Blockly.Blocks['yolobit_neopixel_clear'] = {
-  init: function() {
-    this.jsonInit({
-      "type": "yolobit_neopixel_clear",
-      "message0": "xóa màu led dây",
-      "previousStatement": null,
-      "nextStatement": null,
-      "colour": "#bf42bf",
-      "tooltip": "",
-      "helpUrl": ""
-    });
+Blockly.Blocks['neopixel_show_index_rgb_led'] = {
+  init: function () {
+    this.jsonInit(
+      {
+        "type": "neopixel_show_index_rgb_led",
+        "message0": "đổi màu led số %1 thành màu %2",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "number_led"
+          },
+          {
+            "type": "input_value",
+            "name": "color"
+          }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": ColorBlock,
+        "tooltip": "",
+        "helpUrl": ""
+      }
+    );
   }
 };
+
+
 
 // Any imports need to be reserved words
 //Blockly.Python.addReservedWords('neopixel');
@@ -190,7 +205,7 @@ Blockly.Python['yolobit_neopixel_setup'] = function(block) {
   var dropdown_pin = block.getFieldValue('pin');
   var number_neo = Blockly.Python.valueToCode(block, 'neo', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + ".pin," + number_neo + ")";
+  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + "," + number_neo + ")";
   return code;
 };
 
@@ -207,8 +222,10 @@ Blockly.Python['yolobit_neopixel_effect'] = function(block) {
 return code;
 };
 
-Blockly.Python['yolobit_neopixel_clear'] = function(block) {
+Blockly.Python['neopixel_show_index_rgb_led'] = function (block) {
+  var value_number_led = Blockly.Python.valueToCode(block, 'number_led', Blockly.Python.ORDER_ATOMIC);
+  var value_color = Blockly.Python.valueToCode(block, 'color', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'strips.clear(np)\n';
+  var code = 'strips.show_index_led(' + value_number_led + ', hex_to_rgb(' + value_color + '))\n';
   return code;
 };

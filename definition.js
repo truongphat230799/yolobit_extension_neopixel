@@ -168,7 +168,7 @@ Blockly.Blocks['neopixel_show_index_rgb_led'] = {
     this.jsonInit(
       {
         "type": "neopixel_show_index_rgb_led",
-        "message0": "đổi màu led số %1 thành màu %2",
+        "message0": "đổi màu led thứ %1 thành màu %2",
         "args0": [
           {
             "type": "input_value",

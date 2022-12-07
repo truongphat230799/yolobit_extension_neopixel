@@ -205,14 +205,14 @@ Blockly.Python['yolobit_neopixel_setup'] = function(block) {
   var dropdown_pin = block.getFieldValue('pin');
   var number_neo = Blockly.Python.valueToCode(block, 'neo', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + ".pin," + number_neo + ")";
+  var code = 'strips = led_strip.Led_Strip(' + dropdown_pin + ".pin," + number_neo + ")\n";
   return code;
 };
 
 Blockly.Python['yolobit_neopixel_color'] = function(block) {
   var value_color = Blockly.Python.valueToCode(block, 'COLOR', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = "strips.show_index_led(0, " + value_color + ")\n";
+  var code = "strips.show_index_led(0, hex_to_rgb(" + value_color + "))\n";
   return code;
 };
 

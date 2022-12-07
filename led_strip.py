@@ -17,21 +17,21 @@ class Led_Strip:
         return tuple(int(color[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
     def set_hex_color(self,color):
-        for j in range(NUM_PIXELS):
+        for j in range(self.NUM_PIXELS):
             self.np[j] = self.hex_to_rgb(color)
             self.np.write()
 
     def set_all(self,color):
-        for j in range(NUM_PIXELS):
+        for j in range(self.NUM_PIXELS):
             self.np[j] = color
             self.np.write()
 
     def wipe_effect(self):
-        for i in range(NUM_PIXELS):
+        for i in range(self.NUM_PIXELS):
             self.np[i] = (255, 255, 255)
             self.np.write()
             time.sleep_ms(100)
-        for i in range(NUM_PIXELS):
+        for i in range(self.NUM_PIXELS):
             self.np[i] = (0, 0, 0)
             self.np.write()
             time.sleep_ms(100)

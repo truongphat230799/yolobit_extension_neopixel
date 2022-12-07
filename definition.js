@@ -3,7 +3,7 @@ Blockly.Blocks['yolobit_neopixel_setup'] = {
     this.jsonInit(
       {
         "type": "yolobit_neopixel_setup",
-        "message0": "tạo led dây chân  %1 với số led là %2 %3",
+        "message0": "tạo led dây chân  %1 với số led là %3 %2",
         "args0": [
           {
             "type": "field_dropdown",

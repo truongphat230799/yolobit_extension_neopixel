@@ -118,7 +118,7 @@ Blockly.Blocks['yolobit_neopixel_color'] = {
 Blockly.Blocks["yolobit_neopixel_effect"] = {
   init: function () {    
     this.jsonInit({
-      "message0": "led dây chạy hiệu ứng %1",
+      "message0": "dây led chạy hiệu ứng %1",
       "args0": [
         {
           "type": "field_dropdown",

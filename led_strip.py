@@ -94,7 +94,7 @@ class Led_Strip:
     def twinkle_effect(self):
         for k in range(3):  
             for i in range (self.NUM_PIXELS):
-                pixel = random.randint(0, self.NUM_PIXELS)
+                pixel = random.randint(0, self.NUM_PIXELS - 1)
                 Random = random.randint(0, 255)
                 self.np[pixel] = (Random, Random, Random)
                 self.np.write()
@@ -209,4 +209,5 @@ class Led_Strip:
     def clear(self):
         color = (0,0,0)
         self.set_all(color)
+
 
